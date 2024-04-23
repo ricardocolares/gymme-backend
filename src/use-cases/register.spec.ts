@@ -53,7 +53,7 @@ describe('Register Use Case', () => {
         const { user } = await registerUseCase.execute({
             name: 'Fulano de tal',
             email,
-            password: '123456'
+            password: '1234588'
         })
 
         expect(user.id).toEqual(expect.any(String))
