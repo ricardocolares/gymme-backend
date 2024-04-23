@@ -37,7 +37,7 @@ describe('Register Use Case', () => {
             password: '123456'
         })
 
-        expect(async () => await registerUseCase.execute({
+        await expect(async () => await registerUseCase.execute({
             name: 'Fulano de tal',
             email,
             password: '123456'
