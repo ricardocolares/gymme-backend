@@ -8,13 +8,17 @@ export const app = fastify()
 app.register(appRoutes)
 
 app.setErrorHandler((err, _, reply) => {
-    if (err instanceof ZodError) {
-        return reply.status(400).send({ message: 'Validation error.', issues: err.format() })
-    }
+  if (err instanceof ZodError) {
+    return reply
+      .status(400)
+      .send({ message: 'Validation error.', issues: err.format() })
+  }
 
-    if (env.NODE_ENV !== 'production') { console.error(err) } else {
-        //TODO: WE SHOULD LOG TO AN EXTERNAL TOOL LIKE SENTRY
-    }
+  if (env.NODE_ENV !== 'production') {
+    console.error(err)
+  } else {
+    //TODO: WE SHOULD LOG TO AN EXTERNAL TOOL LIKE SENTRY
+  }
 
-    return reply.status(500).send({ message: 'Internal Server Error' })
+  return reply.status(500).send({ message: 'Internal Server Error' })
 })
