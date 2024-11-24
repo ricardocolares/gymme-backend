@@ -14,7 +14,6 @@ describe('Authenticate Use Case', () => {
     checkInsRepository = new InMemoryCheckInRepository()
     gymsRepository = new InMemoryGymsRepository()
     sut = new CheckInUseCase(checkInsRepository, gymsRepository)
-
     gymsRepository.create({
       id: 'gym-01',
       title: 'Engenharia do corpo',
@@ -23,7 +22,6 @@ describe('Authenticate Use Case', () => {
       latitude: -3.7451746,
       longitude: -38.4744777,
     })
-
 
     vi.useFakeTimers()
   })
